@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://model" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://model" xmlns:intf="http://model" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://model" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://xml.apache.org/xml-soap"/>
+   <element name="setProduct">
+    <complexType>
+     <sequence>
+      <element name="product" type="impl:Product"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_xsd_anyType">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <complexType name="Product">
+    <sequence>
+     <element name="description" nillable="true" type="xsd:string"/>
+     <element name="images" nillable="true" type="impl:ArrayOf_xsd_anyType"/>
+     <element name="product" nillable="true" type="impl:Product"/>
+     <element name="productId" type="xsd:int"/>
+     <element name="productName" nillable="true" type="xsd:string"/>
+     <element name="products" nillable="true" type="impl:ArrayOf_xsd_anyType"/>
+    </sequence>
+   </complexType>
+   <element name="setProductResponse">
+    <complexType/>
+   </element>
+   <element name="getProduct">
+    <complexType/>
+   </element>
+   <element name="getProductResponse">
+    <complexType>
+     <sequence>
+      <element name="getProductReturn" type="impl:Product"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getImageType">
+    <complexType/>
+   </element>
+   <element name="getImageTypeResponse">
+    <complexType>
+     <sequence>
+      <element name="getImageTypeReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getImageId">
+    <complexType/>
+   </element>
+   <element name="getImageIdResponse">
+    <complexType>
+     <sequence>
+      <element name="getImageIdReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setImageId">
+    <complexType>
+     <sequence>
+      <element name="imageId" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setImageIdResponse">
+    <complexType/>
+   </element>
+   <element name="setImageType">
+    <complexType>
+     <sequence>
+      <element name="imageType" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setImageTypeResponse">
+    <complexType/>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://xml.apache.org/xml-soap" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://model"/>
+   <complexType name="Vector">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getProductResponse">
+
+      <wsdl:part element="impl:getProductResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getImageTypeResponse">
+
+      <wsdl:part element="impl:getImageTypeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setProductRequest">
+
+      <wsdl:part element="impl:setProduct" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setProductResponse">
+
+      <wsdl:part element="impl:setProductResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setImageTypeRequest">
+
+      <wsdl:part element="impl:setImageType" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getImageIdResponse">
+
+      <wsdl:part element="impl:getImageIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setImageIdRequest">
+
+      <wsdl:part element="impl:setImageId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getProductRequest">
+
+      <wsdl:part element="impl:getProduct" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getImageIdRequest">
+
+      <wsdl:part element="impl:getImageId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setImageIdResponse">
+
+      <wsdl:part element="impl:setImageIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getImageTypeRequest">
+
+      <wsdl:part element="impl:getImageType" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setImageTypeResponse">
+
+      <wsdl:part element="impl:setImageTypeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Image">
+
+      <wsdl:operation name="setProduct">
+
+         <wsdl:input message="impl:setProductRequest" name="setProductRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setProductResponse" name="setProductResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getProduct">
+
+         <wsdl:input message="impl:getProductRequest" name="getProductRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getProductResponse" name="getProductResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getImageType">
+
+         <wsdl:input message="impl:getImageTypeRequest" name="getImageTypeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getImageTypeResponse" name="getImageTypeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getImageId">
+
+         <wsdl:input message="impl:getImageIdRequest" name="getImageIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getImageIdResponse" name="getImageIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setImageId">
+
+         <wsdl:input message="impl:setImageIdRequest" name="setImageIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setImageIdResponse" name="setImageIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setImageType">
+
+         <wsdl:input message="impl:setImageTypeRequest" name="setImageTypeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setImageTypeResponse" name="setImageTypeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ImageSoapBinding" type="impl:Image">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="setProduct">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setProductRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setProductResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getProduct">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getProductRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getProductResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getImageType">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getImageTypeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getImageTypeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getImageId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getImageIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getImageIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setImageId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setImageIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setImageIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setImageType">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setImageTypeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setImageTypeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ImageService">
+
+      <wsdl:port binding="impl:ImageSoapBinding" name="Image">
+
+         <wsdlsoap:address location="http://localhost:8080/webavcd/services/Image"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -30,3 +30,6 @@ hs_err_pid*
 /WebAppAvenueCode/nbproject/private/
 /WebAppAvenueCode/build/
 /WebAppAvenueCode/dist/
+/WebAppAvCd/target/
+/WebAppAvCdTest/target/
+/build/

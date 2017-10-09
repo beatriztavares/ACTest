@@ -1,0 +1,152 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ImageService WSDL service -->
+
+  <service name="Image" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://model"/>
+      <parameter name="wsdlServiceElement" value="ImageService"/>
+      <parameter name="schemaQualified" value="http://model,http://xml.apache.org/xml-soap"/>
+      <parameter name="wsdlServicePort" value="Image"/>
+      <parameter name="className" value="model.ImageSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Image"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="setProduct" qname="operNS:setProduct" xmlns:operNS="http://model" soapAction="" >
+        <parameter qname="pns:product" xmlns:pns="http://model" type="tns:Product" xmlns:tns="http://model"/>
+      </operation>
+      <operation name="getProduct" qname="operNS:getProduct" xmlns:operNS="http://model" returnQName="retNS:getProductReturn" xmlns:retNS="http://model" returnType="rtns:Product" xmlns:rtns="http://model" soapAction="" >
+      </operation>
+      <operation name="getImageType" qname="operNS:getImageType" xmlns:operNS="http://model" returnQName="retNS:getImageTypeReturn" xmlns:retNS="http://model" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="getImageId" qname="operNS:getImageId" xmlns:operNS="http://model" returnQName="retNS:getImageIdReturn" xmlns:retNS="http://model" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="setImageId" qname="operNS:setImageId" xmlns:operNS="http://model" soapAction="" >
+        <parameter qname="pns:imageId" xmlns:pns="http://model" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="setImageType" qname="operNS:setImageType" xmlns:operNS="http://model" soapAction="" >
+        <parameter qname="pns:imageType" xmlns:pns="http://model" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="setImageId setProduct getProduct getImageId getImageType setImageType"/>
+
+      <typeMapping
+        xmlns:ns="http://model"
+        qname="ns:>setImageId"
+        type="java:model.SetImageId"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://model"
+        qname="ns:>setProduct"
+        type="java:model.SetProduct"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://model"
+        qname="ns:>getProductResponse"
+        type="java:model.GetProductResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://model"
+        qname="ns:ArrayOf_xsd_anyType"
+        type="java:java.lang.Object[]"
+        innerType="cmp-ns:anyType" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://model"
+        qname="ns:Product"
+        type="java:model.Product"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://model"
+        qname="ns:>getProduct"
+        type="java:model.GetProduct"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://model"
+        qname="ns:>getImageType"
+        type="java:model.GetImageType"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://model"
+        qname="ns:>getImageTypeResponse"
+        type="java:model.GetImageTypeResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://model"
+        qname="ns:>setImageIdResponse"
+        type="java:model.SetImageIdResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://model"
+        qname="ns:>setImageTypeResponse"
+        type="java:model.SetImageTypeResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://model"
+        qname="ns:>getImageIdResponse"
+        type="java:model.GetImageIdResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://model"
+        qname="ns:>setImageType"
+        type="java:model.SetImageType"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://model"
+        qname="ns:>getImageId"
+        type="java:model.GetImageId"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://model"
+        qname="ns:>setProductResponse"
+        type="java:model.SetProductResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>
