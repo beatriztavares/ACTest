@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 08/10/2017 13:43:04 by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="acdatabase" dynamic-insert="false" dynamic-update="false" mutable="true" name="Products" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="products">
+        <id name="productId" type="java.lang.Integer">
+            <column name="product_id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="Products" embed-xml="true" fetch="select" insert="true" name="products" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="parent_id"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="productName" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="product_name"/>
+        </property>
+        <property generated="never" lazy="false" name="description" optimistic-lock="true" type="string" unique="false">
+            <column length="300" name="description"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="productses" optimistic-lock="true" sort="unsorted" table="products">
+            <key on-delete="noaction">
+                <column name="parent_id"/>
+            </key>
+            <one-to-many class="Products" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="imageses" optimistic-lock="true" sort="unsorted" table="images">
+            <key on-delete="noaction">
+                <column name="product_id"/>
+            </key>
+            <one-to-many class="Images" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

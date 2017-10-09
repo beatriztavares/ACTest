@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 08/10/2017 13:43:04 by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="acdatabase" dynamic-insert="false" dynamic-update="false" mutable="true" name="Images" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="images">
+        <id name="imageId" type="java.lang.Integer">
+            <column name="image_id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="Products" embed-xml="true" fetch="select" insert="true" name="products" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="product_id"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="imageType" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="image_type"/>
+        </property>
+    </class>
+</hibernate-mapping>
